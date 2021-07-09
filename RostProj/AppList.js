@@ -1,10 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
-import { StyleSheet, View, Text, ScrollView } from 'react-native';
+import { StyleSheet, View, Text, ScrollView, Animated, Button } from 'react-native';
 import AppItem from './AppItem';
-
+import Constants from 'expo-constants';
+import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
 
 export default function AppList() {
+
+  const [isPlaying, setIsPlaying] = React.useState(true);
   
 const [items, setItems] = useState([
   {id: 1, quantidade: 5, descricao: "arroz" }, 
@@ -18,6 +21,24 @@ const [items, setItems] = useState([
     <View style={styles.container}>
         <StatusBar style="light" />
         <Text style={styles.title}>Lista de Compras</Text>
+          <CountdownCircleTimer
+          isPlaying={isPlaying}
+          duration={10}
+          colors={[
+            ['#004777', 0.4],
+            ['#F7B801', 0.4],
+            ['#A30000', 0.2],
+          ]}
+          onComplete={() => [true]}
+          >
+          {({ remainingTime, animatedColor }) => (
+          <Animated.Text style={{ color: animatedColor, fontSize: 40 }}>
+            {remainingTime}
+          </Animated.Text>
+          )}
+          </CountdownCircleTimer>
+          <Button title="Toggle Playing" onPress={() => setIsPlaying(prev => !prev)}/>
+
         <ScrollView 
             style={styles.scrollContainer}
             contentContainerStyle={styles.itemsContainer}>
@@ -28,6 +49,18 @@ const [items, setItems] = useState([
     </View>
     );
 }
+
+
+/* const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: '#ecf0f1',
+    padding: 8,
+  }
+}); */
 
 const styles = StyleSheet.create({
   container: {
