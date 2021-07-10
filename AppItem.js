@@ -1,12 +1,15 @@
 import React from 'react';
 import {StyleSheet, Text, View, TouchableOpacity, Alert} from 'react-native';
+import Database from './Database';
 
+
+export default function AppItem(props){
+    
 async function handleEditPress(){ 
     const item = await Database.getItem(props.id);
     props.navigation.navigate("AppForm", item);
 }
 
-export default function AppItem(props){
     return (
         <View style={styles.container}>
           <Text style={styles.textItem}>{props.item}</Text>
