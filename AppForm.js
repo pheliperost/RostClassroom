@@ -19,9 +19,10 @@ export default function AppForm({ route, navigation }) {
       setQuantidade(route.params.quantidade.toString());
     }, [route])
 
+
     async function handleButtonPress(){ 
       const listItem = {descricao, quantidade: parseInt(quantidade)};
-      Database.saveItem(listItem)
+      Database.saveItem(listItem, id)
         .then(response => navigation.navigate("AppList", listItem));
     }
 
