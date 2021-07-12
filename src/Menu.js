@@ -10,45 +10,54 @@ import  Inverter  from './componentes/Multi';
 import Contador from './componentes/Contador';
 import ValidarProps from './componentes/ValidarProps';
 import Evento from './componentes/Evento';
+import  Avo  from './componentes/ComunicaoDireta';
 
-const Drawer = createDrawerNavigator();
-
- 
+const Drawer = createDrawerNavigator(); 
 
 function MyDrawer() {
   return (
     <Drawer.Navigator drawerStyle={{width:250}}>
-          <Drawer.Screen 
-          drawerStyle={{marginTop:250}} 
-          name="Evento"
-          >
+      <Drawer.Screen 
+        drawerStyle={{marginTop:250}} 
+        name="Comunicacao Direta"
+      >
           {props =>(
-            <Evento/>
+            <Avo nome='Joao' sobrenome='Silva'/>
           )}
-        </Drawer.Screen>
+      </Drawer.Screen>
 
-        <Drawer.Screen 
-          drawerStyle={{marginTop:250}} 
-          name="Validador de Props"
-          >
-          {props =>(
-            <ValidarProps label='o que eu quiser  ' ano={5}/>
-          )}
-        </Drawer.Screen>
 
-        <Drawer.Screen 
-          drawerStyle={{marginTop:250}} 
-          name="Contador"
-          >
-          {props =>(
-            <Contador />
-          )}
+      <Drawer.Screen 
+        drawerStyle={{marginTop:250}} 
+        name="Evento"
+      >
+        {props =>(
+          <Evento/>
+        )}
+      </Drawer.Screen>
+
+      <Drawer.Screen 
+        drawerStyle={{marginTop:250}} 
+        name="Validador de Props"
+      >
+        {props =>(
+          <ValidarProps label='o que eu quiser  ' ano={5}/>
+        )}
+      </Drawer.Screen>
+
+      <Drawer.Screen 
+        drawerStyle={{marginTop:250}} 
+        name="Contador"
+      >
+        {props =>(
+          <Contador />
+        )}
       </Drawer.Screen>
 
       <Drawer.Screen 
         drawerStyle={{marginTop:150}} 
         name="Simples"
-        >
+      >
         {props =>(
           <Simples texto='ate' />
         )}
@@ -57,11 +66,11 @@ function MyDrawer() {
       <Drawer.Screen 
         name="ParImpar"        
         options={{ drawerLabel: 'Par ou impar' }}
-        >
-          {props =>(
-              <ParImpar numero={63} />
-          )}
-          </Drawer.Screen>
+      >
+        {props =>(
+            <ParImpar numero={63} />
+        )}
+      </Drawer.Screen>
     </Drawer.Navigator>
   );
 }
