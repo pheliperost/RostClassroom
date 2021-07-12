@@ -9,6 +9,7 @@ import ParImpar from './componentes/ParImpar';
 import  Inverter  from './componentes/Multi';
 import Contador from './componentes/Contador';
 import ValidarProps from './componentes/ValidarProps';
+import Evento from './componentes/Evento';
 
 const Drawer = createDrawerNavigator();
 
@@ -17,12 +18,21 @@ const Drawer = createDrawerNavigator();
 function MyDrawer() {
   return (
     <Drawer.Navigator drawerStyle={{width:250}}>
+          <Drawer.Screen 
+          drawerStyle={{marginTop:250}} 
+          name="Evento"
+          >
+          {props =>(
+            <Evento/>
+          )}
+        </Drawer.Screen>
+
         <Drawer.Screen 
           drawerStyle={{marginTop:250}} 
           name="Validador de Props"
           >
           {props =>(
-            <ValidarProps label='o que eu quiser' ano={5}/>
+            <ValidarProps label='o que eu quiser  ' ano={5}/>
           )}
         </Drawer.Screen>
 
