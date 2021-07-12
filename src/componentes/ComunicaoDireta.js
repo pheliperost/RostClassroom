@@ -22,7 +22,7 @@ export const Avo = props =>
             <Filho nome='G'/>
             <Filho nome='Dav'/>
         </Pai>
-        <Pai {...props} sobrenome='Pedro'>
+        <Pai {...props} nome='Pedro'>
             <Filho nome='Rebeca'/>
             <Filho nome='Renato'/>
         </Pai>

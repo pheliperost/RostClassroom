@@ -11,12 +11,22 @@ import Contador from './componentes/Contador';
 import ValidarProps from './componentes/ValidarProps';
 import Evento from './componentes/Evento';
 import  Avo  from './componentes/ComunicaoDireta';
+import  TextoSincronizado from './componentes/ComunicacaoIndireta';
 
 const Drawer = createDrawerNavigator(); 
 
 function MyDrawer() {
   return (
     <Drawer.Navigator drawerStyle={{width:250}}>
+      <Drawer.Screen 
+        drawerStyle={{marginTop:250}} 
+        name="Comunicacao Indireta"
+      >
+          {props =>(
+            <TextoSincronizado/>
+          )}
+      </Drawer.Screen>
+     
       <Drawer.Screen 
         drawerStyle={{marginTop:250}} 
         name="Comunicacao Direta"

@@ -18,5 +18,12 @@ export default StyleSheet.create({
     },
     font40:{
         fontSize: 40
-    }
+    },
+    container:{
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center',
+        borderWidth:2,
+        borderColor: '#222',
+	}
 })
